@@ -102,14 +102,13 @@ class block_report_certificates extends block_base {
                              ON ctx.instanceid = cm.id
                      INNER JOIN {files} f
                              ON f.contextid = ctx.id
-                          WHERE cm.module = 23 AND
-                                ctx.contextlevel = 70 AND
+                          WHERE ctx.contextlevel = 70 AND
                                 f.mimetype = 'application/pdf' AND
                                 ci.userid = f.userid AND
                                 ci.userid = :userid
                        GROUP BY ci.code
                        ORDER BY ci.timecreated ASC";
-            // CERTIFICATE MODULE (cm.module = 23), CONTEXT_MODULE (ctx.contextlevel = 70).
+            // CONTEXT_MODULE (ctx.contextlevel = 70).
             // PDF FILES ONLY (f.mimetype = 'application/pdf').
 
         $limit = " LIMIT 5"; // Limiting the output results to just five records.

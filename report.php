@@ -74,8 +74,7 @@ $PAGE->set_url($url);
                              ON ctx.instanceid = cm.id
                      INNER JOIN {files} f
                              ON f.contextid = ctx.id
-                          WHERE cm.module = 23 AND
-                                ctx.contextlevel = 70 AND
+                          WHERE ctx.contextlevel = 70 AND
                                 f.mimetype = 'application/pdf' AND
                                 ci.userid = f.userid AND
                                 ci.userid = :userid
